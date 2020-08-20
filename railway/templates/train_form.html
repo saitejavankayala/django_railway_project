@@ -1,0 +1,7 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<h1>Train Edit</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>

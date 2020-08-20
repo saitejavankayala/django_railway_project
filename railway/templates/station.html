@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mainpage</title>
+</head>
+<body>
+<form method="POST" action="checkpoint">
+    {%  csrf_token %}
+<select name="from">
+{% for station in stations %}
+<option  >{{ station.station_name }}</option>
+{% endfor %}
+    </select>
+<br>
+<select name="to">
+{% for station in stations %}
+<option >{{ station.station_name }}</option>
+{% endfor %}
+</select>
+    <button type="submit">find train</button>
+</form>
+</body>
+</html>

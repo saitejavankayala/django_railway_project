@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border: 5px;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 18px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+   position: absolute;
+    top: 40%;
+    right:60%;
+}
+.wrapper {
+    text-align: center;
+}
+</style>
+
+</head>
+
+<body><form method="post" action="end">
+    {% csrf_token %}
+<p align="center"><h align="center" >DETAILS OF PASSENGERS</h></p>
+<table>
+<tr>
+<td>PNR NO</td>
+<td>Name</td>
+<td>Age</td>
+<td>Gender</td>
+<td>TrainName</td>
+<td>TrainNumber</td>
+<td>SeatType</td>
+<td>Coach</td>
+<td>Berth</td>
+<td>Current Status</td>
+<td>Start point</td>
+<td>End point</td>
+</tr>
+<tr>
+<td>{{pnr}}</td>
+<td>{{pn}}</td>
+<td>{{pa}}</td>
+<td>{{gender}}</td>
+<td>{{stations}}</td>
+<td>{{td}}</td>
+<td>{{seat}}</td>
+<td>B3</td>
+<td>{{berth1}}</td>
+<td>{{seat10}}</td>
+<td>{{sp}}</td>
+<td>{{ep}}</td>
+</tr>
+    <tr><div class="wrapper"><button margin-left:50px; type="submit" class="button">submit</button></div></tr>
+</table>
+</form>
+</body>
+</html>

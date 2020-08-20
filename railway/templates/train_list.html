@@ -1,0 +1,37 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<h1>Train</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Train Name</th>
+    <th>Train Number</th>
+    <th>Starting point</th>
+    <th>End point</th>
+    <th>Stops</th>
+    <th>Days</th>
+    <th>Seats</th>
+    <th>Seattype</th>
+    </tr>
+</thead>
+<tbody>
+    {% for train in object_list %}
+    <tr>
+    <td>{{ train.train_name }}</td>
+    <td>{{ train.train_id }}</td>
+    <td>{{ train.startpoint }}</td>
+    <td>{{ train.endpoint }}</td>
+    <td>{{ train.stops}}</td>    <td>{{ train.days}}</td>
+    <td>{{ train.seats}}</td>    <td>{{ train.seattype}}</td>
+
+
+    <td><a href="{% url "train_view"  train.train_id %}">view</a></td>
+    <td><a href="{% url "train_edit" train.train_id  %}">edit</a></td>
+    <td><a href="{% url "train_delete" train.train_id  %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "train_new" %}">New</a>

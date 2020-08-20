@@ -1,0 +1,8 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<h1>Train Details</h1>
+<h2>Train_id: {{object.train_id}}</h2>
+Train_name: {{ object.train_name }}
+startpoint: {{ object.startpoint }}
+endpoint: {{ object.endpoint }}
+stops: {{ object.stops }}

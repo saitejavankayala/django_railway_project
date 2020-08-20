@@ -1,0 +1,115 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border:none;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 18px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+</head>
+
+<body><form method="post" action="display">
+    {% csrf_token %}
+<table><h1>
+    <caption>BOOK TICKET</caption>
+</h1>
+    <tr>
+
+    <td>Train Name:</td>
+<td><input value="{{stations}}" name="stations" type="text"  hidden>{{stations}} </td>
+</tr><tr>
+
+    <td>Train Number</td>
+<td><input value="{{td}}" name="td" type="text"  hidden>{{td}} </td>
+</tr>
+<tr>
+<tr>
+       <td>STARTING POINT</td> <td><input value="{{sp}}" name="sp" type="text"  hidden>{{sp}}</td>
+    </tr>
+
+<tr>
+       <td>END POINT</td> <td><input value="{{ep}}" name="ep" type="text"  hidden>{{ep}}</td>
+    </tr>
+
+<td>Boarding at:</td>
+<td>{{from}}</td>
+</tr>
+<tr>
+<td>leaving at:</td>
+<td>{{to}}</td>
+</tr>
+<tr>
+<input value="{{seat}}" name="seat10" type="text"  hidden>
+
+</tr>
+<tr>
+<td >seattype</td>
+<td><select name="seat">
+{% for train in st %}
+    <option value="{{ train}}">{{ train}}</option>
+{% endfor %}
+</select></td>
+</tr>
+<tr style=border:2px;>
+
+ <td>No of pasengers:</td>   
+  <td><select  required>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+ </select></td>
+</tr>
+<tr>
+     <td>PassengerName:</td>
+     <td><input type="text" name="pd" required></td>
+</tr>
+    <tr>
+     <td>PassengerAge:</td>
+     <td><input type="number" name="pa" required></td>
+        <tr>
+
+<input value="{{berth}}" name="berth" type="text"  hidden></tr>
+<tr><td>Gender:</td>
+     <td><input type="radio" name="gender" value="Male" checked> Male
+    <input type="radio" name="gender" value="Female" >Female</td>
+ <tr><input value="{{pnr}}" name="pnr" type="text"  hidden>
+    </tr>
+
+<tr >
+<td></td>
+<td><button margin-left:50px; type="submit" class="button">submit</button></td></tr>
+</table>
+</form>
+</body>
+</html>
